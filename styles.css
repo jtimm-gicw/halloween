@@ -1,9 +1,12 @@
 * {
-    font-size: 12 px;
+    font-size: 14 px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h1 {
     text-align: center;
     color:green;
+}
+h2 {
+    color: orangered;
 }
