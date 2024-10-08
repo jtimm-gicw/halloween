@@ -1,6 +1,8 @@
 * {
     font-size: 14 px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 5px;
+    padding: 5px;
 }
 
 h1 {
@@ -19,4 +21,8 @@ p {
 }
 ul {
     line-height: 1.6;
+}
+
+#div {
+    padding: 20px;
 }
