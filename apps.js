@@ -27,7 +27,7 @@ image.addEventListener('mouseenter', function() {
   // Add the shake class
   image.classList.add('shake');
 
-  // Remove the shake class after the animation is done (500ms in this case)
+  // Rms in this case)
   setTimeout(function() {
     image.classList.remove('shake');
   }, 500);
