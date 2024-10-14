@@ -26,3 +26,71 @@ ul {
 #div {
     padding: 20px;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    display: flex;            /* Aligns list items horizontally */
+    gap: 10px;                /* Adds space between list items */
+    list-style: none;         /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+ul li a:hover {
+    color: red;     /* Changes text color on hover */
+    
+}
+
+ul li a{
+    /* Default styling for list items */
+    color: black;   /* Default text color */
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+img {
+    border: 2px solid black;  /* Adds a 2px solid black border */
+    border-radius: 25px;
+}
+
+a img:hover {
+    color: green;
+}
+#countdown {
+    font-size: 2em;
+    color: darkred;
+    text-align: center;
+     
+}
+#movie-response {
+    color:black;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.section_party {
+    display: flex;
+    justify-content: left;
+}
+img {
+    width: 200px;
+    height: auto;
+    transition: transform 0.2s; /* Optional smoothness */
+  }
+
+  @keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, 0); }
+    50% { transform: translate(-5px, 0); }
+    75% { transform: translate(5px, 0); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Class to apply shake animation */
+  .shake {
+    animation: shake 0.5s;
+  }

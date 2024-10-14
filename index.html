@@ -6,8 +6,17 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet
-">
+    <link href="styles.css" rel="stylesheet">
+    <script src="apps.js">
+       window.onload = function() {
+            let userInput = prompt("What is your favorite scary movie?", "Friday the 13th");
+            // Optional: You can handle the user input here
+            console.log("User's favorite movie is: " + userInput);
+        };
+    </script> 
+    
+    <div id="movie-response"></div>
+
     <title>Halloween</title>
 </head>
 
@@ -15,7 +24,7 @@
    <header>
     <h1>Happy Halloween!</h1>
 </header> 
-    <nav>
+    <nav class="container">
         <ul>
             <li><a href="halloween-history.html">History</a></li>
             <li><a href="Fun-Crafts.html">Crafts</a></li>
@@ -29,7 +38,7 @@
             <h2><strong>
                 Carving a Jack-o-Latern
             </strong></h2>
-                 <a><img src="Images/pumpkin-carving.jpg" alt="a person carving a pumpkin with a fun face" height="200 px" width="400 px"></a>
+                 <a><img id="shakableImage" src="Images/pumpkin-carving.jpg" alt="a person carving a pumpkin with a fun face" height="200 px" width="400 px" class="shake"></a>
             <blockquote>
                 <article>
              <p>
@@ -47,7 +56,10 @@
             <h2><strong>
                Trick or Treak! 
             </strong></h2>
-                 <a> <img src="Images/trick-or-treat.jpg" alt="Children going trick or treating on Halloween"  height="200 px" width="400 px"></a>
+                 <a> <img id="shakableImage" src="Images/trick-or-treat.jpg" alt="Children going trick or treating on Halloween"  height="200 px" width="400 px" class="shake"></a>
+                 <input type="text" id="favorite candy" candy="candy" placeholder="choclate" required>
+                 <input type="submit" value="submit">
+
             <blockquote>
                 <article>
                 <p>
@@ -57,11 +69,11 @@
             </blockquote>
         </section>
 
-        <section id="sections">
+        <section id="section_party">
             <h2><strong>
                 Halloween Parties
             </strong></h2>
-                <a> <img src="Images/spooky-party.jpg" alt="A spooky Halloween party with snacks"  height="200 px" width="400 px"></a>
+                <a> <img id="shakableImage" src="Images/spooky-party.jpg" alt="A spooky Halloween party with snacks"  height="200 px" width="400 px" class="shake"></a>
             <blockquote><article>
                 <p>
                     Halloween parties can be for kids or adults.  They are meant to celebrate the holiday in a fun and spooky way.  Some activies at Halloweeen parties are:
@@ -78,5 +90,37 @@
    
 
     </main>
+    <footer>
+        <h2>Countdown to Halloween 2024</h2>
+        <div id="countdown"></div>
+    </footer>
+    
+    <script>
+    // Set the target date (Halloween 2024)
+    const targetDate = new Date("October 31, 2024 00:00:00").getTime();
+    
+    // Function to update the countdown
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const timeLeft = targetDate - now;
+    
+        // Calculate time components
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+        // Display the result in the countdown div
+        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    
+        // If the countdown is over, display a message
+        if (timeLeft < 0) {
+            document.getElementById("countdown").innerHTML = "Happy Halloween!";
+        }
+    }
+    
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
