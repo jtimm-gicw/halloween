@@ -22,16 +22,15 @@ window.onload = function() {
 
 const image = document.getElementById('shakableImage');
 
-    // Add event listener for the image
-    image.addEventListener('click', function() {
-      // Add the shake class
-      image.classList.add('shake');
+// Add event listener for when the mouse enters the image (hover effect)
+image.addEventListener('mouseenter', function() {
+  // Add the shake class
+  image.classList.add('shake');
 
-      // Remove the shake class after the animation is done (500ms in this case)
-      setTimeout(function() {
-        image.classList.remove('shake');
-      }, 500);
-    });
-
+  // Remove the shake class after the animation is done (500ms in this case)
+  setTimeout(function() {
+    image.classList.remove('shake');
+  }, 500);
+});
 
 

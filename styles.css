@@ -55,6 +55,9 @@ ul li a{
 img {
     border: 2px solid black;  /* Adds a 2px solid black border */
     border-radius: 25px;
+    width: 400px;
+    height: 200px;
+    transition: transform 0.2s; /* Optional smoothness */
 }
 
 a img:hover {
@@ -72,15 +75,6 @@ a img:hover {
     font-size: 1.5em;
 }
 
-.section_party {
-    display: flex;
-    justify-content: left;
-}
-img {
-    width: 200px;
-    height: auto;
-    transition: transform 0.2s; /* Optional smoothness */
-  }
 
   @keyframes shake {
     0% { transform: translate(0, 0); }
