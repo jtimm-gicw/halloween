@@ -9,11 +9,13 @@
 h1 {
     text-align: center;
     color: green;
+    font-size: 3em;
 }
 
 h2 {
     color: orangered;
     text-align: center;
+    font-size: 2em;
 }
 
 blockquote {
