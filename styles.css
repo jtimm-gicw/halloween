@@ -9,17 +9,17 @@
 h1 {
     text-align: center;
     color: green;
-    font-size: 3em;
+    font-size: 4em;
 }
 
 h2 {
     color: orangered;
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 blockquote {
-    background-color: rgba(230, 228, 228, 0.999);
+    background-color: rgb(244, 192, 95);
 }
 
 p {
@@ -34,7 +34,7 @@ ul {
     padding: 20px;
 }
 
-.container {
+.nav_container {
     display: flex;
     justify-content: center;
 }
@@ -68,6 +68,8 @@ img {
     height: 200px;
     transition: transform 0.2s; /* Optional smoothness */
 }
+
+
 
 /* Countdown Styles */
 #countdown {
