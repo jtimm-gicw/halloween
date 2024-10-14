@@ -1,10 +1,6 @@
 'strict use'
 
-window.onload = function() {
-    // Prompt the user with a question
-    let userInput = prompt("What is your favorite scary movie?", "Friday the 13th");
-    console.log ('Wow!' + userInput + 'is really scary')
-}
+
 
 window.onload = function() {
     // Prompt the user with a question
