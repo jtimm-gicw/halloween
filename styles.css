@@ -1,6 +1,7 @@
 /* General Styles */
+
+
 * {
-    font-size: 14px; /* Removed space between 14 and px */
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 5px;
     padding: 5px;
@@ -24,6 +25,7 @@ blockquote {
 
 p {
     line-height: 1.6;
+    font-size: 14px;
 }
 
 ul {
