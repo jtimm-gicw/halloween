@@ -65,4 +65,30 @@ document.addEventListener('DOMContentLoaded', function() {
     handleMovieInput();
     setInterval(updateCountdown, 1000); // Start countdown timer
 });
- 
+
+function halloweenDate() {
+    let answer = prompt('What date is Halloween on?');  // Ask for the answer before the loop
+
+    while (answer != 31) {   // Keep looping if the answer is not 31
+        alert('Try again!');
+        answer = prompt('What date is Halloween on?');  // Ask again inside the loop
+    }
+
+    alert('Correct! Halloween is October 31st.');
+}
+
+halloweenDate ()
+
+function displayRating() {
+    let output = '';
+    let rating = prompt('Scale of 1-5, How many pumpkins?');
+    for(let i = 0; i < rating; i++){
+        output += "<img class='pumpkin' src='Images/Jackolantern.jpg' />";
+    }
+
+    // Inject the output into the div instead of using document.write
+    document.getElementById('pumpkin').innerHTML = output;
+}
+
+
+displayRating()

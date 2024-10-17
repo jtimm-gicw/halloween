@@ -92,7 +92,7 @@ ul li a {
 
 /* Image Styles */
 img {
-    border: 2px solid black; /* Adds a 2px solid black border */
+    border: 2px solid green; /* Adds a 2px solid black border */
     border-radius: 25px;
     width: 400px;
     height: 200px;
@@ -131,4 +131,9 @@ img {
 blockquote {
     border-radius: 25px;
     font-size: 14px;
+}
+
+.rating-container img {
+   width: 200px;
+   height: 100px;
 }
