@@ -92,3 +92,19 @@ function displayRating() {
 
 
 displayRating()
+
+const images = document.querySelectorAll('.shakableImage');
+ 
+ // Add event listeners for each image
+     images.forEach(image => {
+            image.addEventListener('mouseenter', function() {
+                // Add the shake class
+                image.classList.add('shake');
+ 
+                // Remove the shake class after the animation is done
+                setTimeout(function() {
+                    image.classList.remove('shake');
+                }, 500);
+            });
+        });
+   
