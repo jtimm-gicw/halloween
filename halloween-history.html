@@ -1,79 +1,139 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    
-    <link href="styles.css" rel="stylesheet">
-    
-    <meta charset="UTF-8">
-    
-    <title>Halloween History</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halloween — History</title>
+
+  <!-- Same font + styles as other pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet" />
+
+  <!-- Shared JS (countdown, shake, etc.) -->
+  <script src="app.js" defer></script>
 </head>
 
 <body>
-    <main>
-    <h1>The Origins of Halloween</h1>
-    
-    <h2>
-        Ancient Roots
-    </h2>
-    <a><img src="Images/Halloween-history.jpg" alt="a painting of people celebrating Samhain in ancient times" height="200 px" width="400 px"></a>
-    
-    <section class="sections">
-        <article>
-            <em>Celtic Festival of Samhain:</em> Halloween traces its origins back to the ancient Celtic festival of Samhain, celebrated around November 1. This festival marked the end of the harvest season and the beginning of winter, when it was believed that the boundary between the living and the dead was blurred. Celts lit bonfires and wore costumes to ward off roaming spirits.    
-        </article>
-    </section>
-    </div>
+  <!-- =================== HEADER & NAV (shared) =================== -->
+  <header class="site-header">
+    <h1>Happy Halloween!</h1>
 
-    <h2>
-        In Medieval Times
-    </h2>
-    
-    <div>
-    <section class="sections">
-        <article>
-            <em>Souling and Guising:</em> In medieval Europe, people began to celebrate by "souling," where the poor would go door-to-door, offering prayers for the dead in exchange for food. This practice evolved into "guising," where children dressed in costumes and performed tricks for treats.
-        </article>
-    </section>
-    </div>
+    <!-- Dynamic messages (popups only run on Home thanks to app.js) -->
+    <div id="welcome-message" aria-live="polite"></div>
+    <div id="message" aria-live="polite"></div>
 
-    <h2>
-        American Influences
-    </h2>
-    <a><img src="Images/old-halloween-costumes.jpg" alt="a black and white photo of people wearing old Halloween costumes from the turn of the century in the United States" height="200 px" width="400 px"></a>
-    <div>
-    <section class="sections">
-        <article>
-            <em>Immigration and Commercialization:</em> Halloween was brought to America by Irish and Scottish immigrants in the 19th century. By the early 20th century, it had transformed into a community-centered holiday characterized by parties and festivities. In the 1920s and 1930s, it became more commercialized, with the introduction of Halloween cards, costumes, and decorations.
-        </article>
-    </section>
-    </div>
+    <nav class="nav_container" aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="halloween-history.html">History</a></li>
+        <li><a href="crafts.html">Crafts</a></li>
+        <li><a href="useful-link.html">Useful Links</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <h2>
-        Modern Celebrations
-    </h2>
-    <a><img src="Images/modern-day-halloween.jpg" alt="kids wearing costumes for Halloween in the US" height="200 px" width="400 px"></a>
-    <div>
-    <section class="sections">
-        <article>
-            <em>Trick or Treating:</em> Halloween was brought to America by Irish and Scottish immigrants in the 19th century. By the early 20th century, it had transformed into a community-centered holiday characterized by parties and festivities. In the 1920s and 1930s, it became more commercialized, with the introduction of Halloween cards, costumes, and decorations.
-        </article>
+  <!-- =================== MAIN =================== -->
+  <main id="main-content">
+    <!-- Page title -->
+    <section>
+      <h2><strong>The Origins of Halloween</strong></h2>
     </section>
-    </div>
 
-    <h2></h2>
-        Cultural Impact
-    </h2>
-    <div>
-    <section class="sections">
-        <article>
-            <em>Ghosts Gone Global:</em> Halloween was brought to Halloween is now celebrated in various forms around the world, often incorporating local traditions. It has also influenced popular culture, inspiring films, literature, and music.
-        </article>
+    <!-- Ancient Roots -->
+    <section class="sections" aria-labelledby="ancient-title">
+      <h3 id="ancient-title">Ancient Roots</h3>
+
+      <figure>
+        <img
+          class="shakableImage"
+          src="Images/Halloween-history.jpg"
+          alt="People celebrating Samhain in ancient times"
+          loading="lazy"
+          width="800" height="400"
+        />
+      </figure>
+
+      <article>
+        <p>
+          <em>Celtic Festival of Samhain:</em> Halloween traces its origins back to the ancient Celtic festival of Samhain, celebrated around November 1. This festival marked the end of the harvest season and the beginning of winter, when it was believed that the boundary between the living and the dead was blurred. Celts lit bonfires and wore costumes to ward off roaming spirits.
+        </p>
+      </article>
     </section>
-    </div>
 
-    </main>
+    <!-- Medieval Times -->
+    <section class="sections" aria-labelledby="medieval-title">
+      <h3 id="medieval-title">In Medieval Times</h3>
+
+      <article>
+        <p>
+          <em>Souling and Guising:</em> In medieval Europe, people began to celebrate by “souling,” where the poor would go door-to-door, offering prayers for the dead in exchange for food. This practice evolved into “guising,” where children dressed in costumes and performed tricks for treats.
+        </p>
+      </article>
+    </section>
+
+    <!-- American Influences -->
+    <section class="sections" aria-labelledby="american-title">
+      <h3 id="american-title">American Influences</h3>
+
+      <figure>
+        <img
+          class="shakableImage"
+          src="Images/old-halloween-costumes.jpg"
+          alt="Early 20th-century Halloween costumes in the United States"
+          loading="lazy"
+          width="800" height="400"
+        />
+      </figure>
+
+      <article>
+        <p>
+          <em>Immigration and Commercialization:</em> Halloween was brought to America by Irish and Scottish immigrants in the 19th century. By the early 20th century, it had transformed into a community-centered holiday characterized by parties and festivities. In the 1920s and 1930s, it became more commercialized, with the introduction of Halloween cards, costumes, and decorations.
+        </p>
+      </article>
+    </section>
+
+    <!-- Modern Celebrations -->
+    <section class="sections" aria-labelledby="modern-title">
+      <h3 id="modern-title">Modern Celebrations</h3>
+
+      <figure>
+        <img
+          class="shakableImage"
+          src="Images/modern-day-halloween.jpg"
+          alt="Kids wearing costumes for Halloween in the United States"
+          loading="lazy"
+          width="800" height="400"
+        />
+      </figure>
+
+      <article>
+        <p>
+          <em>Trick or Treating:</em> Today, Halloween is a community-centered celebration featuring costumes, decorations, and neighborhood trick-or-treating. Many communities also host school parties, parades, haunted houses, and movie nights.
+        </p>
+      </article>
+    </section>
+
+    <!-- Cultural Impact -->
+    <section class="sections" aria-labelledby="cultural-title">
+      <h3 id="cultural-title">Cultural Impact</h3>
+
+      <article>
+        <p>
+          <em>Ghosts Gone Global:</em> Halloween is now celebrated in various forms around the world, often incorporating local traditions. It has also influenced popular culture, inspiring films, literature, music, and seasonal events.
+        </p>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- =================== FOOTER COUNTDOWN =================== -->
+  <footer>
+        <h2>Countdown to Halloween!</h2>
+        <div id="countdown"></div>
+    </footer>
+
+ 
+
+  
 </body>
 </html>

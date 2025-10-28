@@ -1,139 +1,440 @@
-/* General Styles */
+/* =========================================================
+   🎃 Halloween / Fall Theme — Polished Beginner Styles
+   - Keep all your existing IDs and classes so JS still works
+   - Add comments to explain the "why"
+   ========================================================= */
 
+/* --------- Theme Variables (easy color tweaks) --------- */
+:root {
+  --bg: #0f1115;             /* deep night */
+  --bg-2: #161922;           /* slightly lighter panel */
+  --text: #f4f4f5;           /* near-white text */
+  --muted: #c9c9cf;          /* secondary text */
+  --accent: #ff7a18;         /* pumpkin orange */
+  --accent-2: #ffb703;       /* harvest amber */
+  --accent-purple: #5b2a86;  /* eerie purple */
+  --accent-green: #a2f35f;   /* slime green (sparingly) */
+  --border: #272a36;         /* subtle panel borders */
+  --glow: rgba(255, 122, 24, 0.4);
+}
 
-* {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 5px;
-    padding: 5px;
-    
+/* --------- Sensible Reset (don’t globally margin/pad *) --------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #333333;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(255, 122, 24, 0.06), transparent 50%),
+    radial-gradient(1200px 500px at -10% 10%, rgba(91, 42, 134, 0.12), transparent 50%),
+    linear-gradient(180deg, var(--bg) 0%, #0d0f14 60%, var(--bg) 100%);
+  line-height: 1.6;
 }
 
+/* A simple width wrapper for nicer reading */
+#main-content, .site-header, .site-footer, .rating-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+
+/* --------- Headings --------- */
 h1 {
-    text-align: center;
-    color: green;
-    font-size: 4em;
+  text-align: center;
+  color: var(--accent);
+  font-size: clamp(3.2rem, 5vw, 4.5rem);
+  margin: 16px 0 8px;
+  text-shadow: 0 0 18px var(--glow);
+  font-family: 'Creepster', Georgia, 'Times New Roman', Times, serif;
 }
 
 h2 {
-    color: orangered;
-    text-align: center;
-    font-size: 3em;
+  color: var(--accent-2);
+  text-align: center;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  margin: 20px 0 12px;
+  text-shadow: 0 0 10px rgba(255, 183, 3, 0.25);
+  font-family: 'Creepster', Georgia, 'Times New Roman', Times, serif;
 }
 
-blockquote {
-    background-color: rgb(244, 192, 95);
-    font-size: 14px;
+/* Paragraphs and lists read better with consistent sizing */
+p, ul {
+  font-size: 1rem;
+  color: var(--text);
 }
 
-p {
-    line-height: 1.6;
-    font-size: 14px;
+/* --------- Site Header/Footer Panels --------- */
+.site-header, .site-footer {
+  background: linear-gradient(180deg, var(--bg-2), transparent);
+  border-bottom: 1px solid var(--border);
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-ul {
-    line-height: 1.6;
-    
+/* --------- Welcome + Message (JS inserts text here) --------- */
+#welcome-message, #message {
+  text-align: center;
+  font-weight: bold;
+  margin: 4px 0;
 }
 
+#welcome-message { color: var(--text); font-size: 1.125rem; }
+#message         { color: var(--muted); font-size: 1rem;   }
 
-div {
-    padding: 20px;
-    
-}
-
-#welcome-message {
-    color:white;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#message {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-  
-}
-
+/* --------- Navigation --------- */
 .nav_container {
-    display: flex;
-    justify-content: center;
-    
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-
-
-/* Navigation Styles */
-ul {
-    display: flex; /* Aligns list items horizontally */
-    gap: 10px; /* Adds space between list items */
-    list-style: none; /* Removes bullet points */
-    padding: 0;
-    margin: 0;
-    
-    
+/* Use a scoped nav list so other ULs aren’t affected */
+.nav_container ul {
+  display: flex;
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(22, 25, 34, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  backdrop-filter: saturate(140%) blur(2px);
 }
 
-ul li a:hover {
-    color: red; /* Changes text color on hover */
+.nav_container ul li a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 
-ul li a {
-    /* Default styling for list items */
-    color: whitesmoke; /* Default text color */
-    list-style: none;
-    margin: 0;
-    padding: 10px;
-    font-size: 18px;
+.nav_container ul li a:hover {
+  background: rgba(255, 122, 24, 0.12);
+  color: var(--accent-2);
+  transform: translateY(-1px);
 }
 
-/* Image Styles */
+/* --------- Sections as “cards” --------- */
+section {
+  background: rgba(22, 25, 34, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* --------- Images (responsive, soft border, subtle hover) --------- */
 img {
-    border: 2px solid green; /* Adds a 2px solid black border */
-    border-radius: 25px;
-    width: 400px;
-    height: 200px;
-    transition: transform 0.2s; /* Optional smoothness */
+  width: min(100%, 720px);
+  height: auto;
+  display: block;
+  margin: 8px auto;
+  border: 2px solid rgba(255, 122, 24, 0.35); /* pumpkin-tinted frame */
+  border-radius: 18px;
+  transition: transform 0.2s ease;
 }
 
+/* Gentle lift on hover; the JS “shake” handles the spooky effect */
+img:hover { transform: translateY(-2px); }
 
-/* Countdown Styles */
-#countdown {
-    font-size: 2em;
-    color: yellow;
-    text-align: center;
-}
-
-
-/* Shake Animation */
+/* Shakable image: no extra styles needed beyond JS adding .shake */
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0%   { transform: translate(1px, 1px) rotate(0deg); }
+  10%  { transform: translate(-1px, -2px) rotate(-1deg); }
+  20%  { transform: translate(-3px, 0px) rotate(1deg); }
+  30%  { transform: translate(3px, 2px) rotate(0deg); }
+  40%  { transform: translate(1px, -1px) rotate(1deg); }
+  50%  { transform: translate(-1px, 2px) rotate(-1deg); }
+  60%  { transform: translate(-3px, 1px) rotate(0deg); }
+  70%  { transform: translate(3px, 1px) rotate(-1deg); }
+  80%  { transform: translate(-1px, -1px) rotate(1deg); }
+  90%  { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-/* The shake class that triggers the animation */
-.shake {
-    animation: shake 0.5s; /* Trigger the shake animation */
+.shake { animation: shake 0.5s; }
+
+/* --------- Countdown --------- */
+#countdown {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #ffe36e; /* moonlight */
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 227, 110, 0.4);
+  margin-top: 6px;
 }
 
-blockquote {
-    border-radius: 25px;
-    font-size: 14px;
+/* --------- Rating: pumpkins and comment --------- */
+.rating-container {
+  display: grid;
+  place-items: center;
+  gap: 8px;
 }
 
-.rating-container img {
-   width: 200px;
-   height: 100px;
+.rating-container img.pumpkin {
+  width: 64px;       /* clearer visibility on mobile */
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  border-color: rgba(255, 122, 24, 0.55);
+}
+
+/* You mentioned adding this class—here’s a slightly enhanced version */
+.rating-comment {
+  color: orange;
+  font-style: italic;
+  margin-top: 8px;
+  text-shadow: 1px 1px 2px black;
+  filter: drop-shadow(0 0 10px rgba(255, 122, 24, 0.18));
+  text-align: center;
+}
+
+/* --------- Blockquote / Article text blocks --------- */
+/* You used blockquotes before—styling articles to look like info cards */
+article {
+  background: rgba(15, 17, 21, 0.35);
+  border: 1px dashed rgba(255, 122, 24, 0.35);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+/* --------- Accessibility & Motion Preferences --------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* --------- Responsive Tweaks --------- */
+@media (max-width: 600px) {
+  .nav_container ul { gap: 6px; padding: 6px 8px; }
+  .nav_container ul li a { padding: 6px 8px; font-size: 0.95rem; }
+  section { padding: 12px; }
+}
+
+/* =========================================================
+   Crafts Grid & Cards (pills) — add-on styles
+   ========================================================= */
+
+/* Responsive grid for the 9 crafts */
+.crafts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* Rounded “pill” cards that match your dark theme */
+.craft-card {
+  background: rgba(22, 25, 34, 0.55);         /* aligns with your --bg-2 look */
+  border: 1px solid var(--border, #272a36);   /* fallback if :root vars not set */
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Slight lift + wobble on hover for a spooky feel */
+.craft-card:hover {
+  transform: translateY(-4px) rotate(-0.4deg);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+  animation: wobble 0.6s ease;
+}
+
+/* Small wobble animation (compliments your existing shake) */
+@keyframes wobble {
+  0%   { transform: translateY(-2px) rotate(-0.2deg); }
+  25%  { transform: translateY(-3px) rotate(0.2deg); }
+  50%  { transform: translateY(-4px) rotate(-0.4deg); }
+  75%  { transform: translateY(-3px) rotate(0.2deg); }
+  100% { transform: translateY(-4px) rotate(-0.4deg); }
+}
+
+/* Craft images — reuse your image frame vibe, but fill the card */
+.craft-figure img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 122, 24, 0.35);
+  border-radius: 14px;
+  display: block;
+}
+
+/* Titles & lists inside cards */
+.craft-title {
+  color: var(--accent-2, #ffb703);
+  margin: 10px 0 6px;
+  font-size: 1.15rem;
+  text-align: left;
+}
+
+.craft-materials,
+.craft-steps {
+  margin: 6px 0;
+  padding-left: 18px;
+  color: var(--text, #f4f4f5);
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.craft-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-ghost {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text, #f4f4f5);
+  background: rgba(255, 122, 24, 0.15);
+  border: 1px solid rgba(255, 122, 24, 0.4);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 122, 24, 0.25);
+  color: var(--accent-2, #ffb703);
+  transform: translateY(-1px);
+}
+
+/* Better spacing in small viewports */
+@media (max-width: 600px) {
+  .craft-figure img { height: 160px; }
+}
+
+/* ----------------------------------------------------------
+   Extra Halloween Glow Accents (Purple & Green)
+   ---------------------------------------------------------- */
+
+/* Add a subtle layered glow to headings */
+h1, h2 {
+  text-shadow:
+    0 0 12px var(--glow),
+    0 0 20px rgba(91, 42, 134, 0.45),   /* purple glow */
+    0 0 28px rgba(162, 243, 95, 0.25);  /* green mist */
+}
+
+/* Make links and nav items flicker slightly on hover */
+.nav_container ul li a:hover {
+  background: radial-gradient(circle at center,
+              rgba(91, 42, 134, 0.25) 0%,
+              rgba(255, 122, 24, 0.18) 60%,
+              transparent 100%);
+  color: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green), 0 0 14px var(--accent-purple);
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Add color-shifting glow to section borders */
+section {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+              linear-gradient(135deg, var(--accent-green), var(--accent-purple)) border-box;
+}
+
+/* Hover effect for images: eerie purple-green edge */
+img:hover {
+  border-color: var(--accent-purple);
+  box-shadow:
+    0 0 12px rgba(91, 42, 134, 0.6),
+    0 0 18px rgba(162, 243, 95, 0.4);
+}
+
+/* Countdown gets a color pulse between moon yellow and slime green */
+#countdown {
+  animation: countdownPulse 3s infinite alternate ease-in-out;
+}
+
+@keyframes countdownPulse {
+  0%   { text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-purple); color: #ffe36e; }
+  50%  { text-shadow: 0 0 14px var(--accent-purple), 0 0 24px var(--accent-green); color: var(--accent-green); }
+  100% { text-shadow: 0 0 10px var(--accent-green), 0 0 18px var(--accent-purple); color: #ffe36e; }
+}
+
+/* Optional: subtle glow behind entire body background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(600px 400px at 20% 20%, rgba(91, 42, 134, 0.08), transparent 70%),
+    radial-gradient(700px 500px at 80% 80%, rgba(162, 243, 95, 0.06), transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   🎃 Pumpkin Rating Layout — horizontal alignment
+   ========================================================= */
+
+.rating-container {
+  display: flex;              /* Arrange items side by side */
+  justify-content: center;    /* Center them horizontally */
+  align-items: center;        /* Align vertically */
+  flex-wrap: wrap;            /* Wrap if screen is too narrow */
+  gap: 8px;                   /* Space between pumpkins */
+  margin-top: 10px;
+}
+
+.rating-container img.pumpkin {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  border-color: rgba(255, 122, 24, 0.55);
+}
+
+.rating-comment {
+  flex-basis: 100%;           /* Make the comment go below the pumpkins */
+  text-align: center;
+  color: orange;
+  font-style: italic;
+  margin-top: 8px;
+  text-shadow: 1px 1px 2px black;
+  filter: drop-shadow(0 0 10px rgba(255, 122, 24, 0.18));
+}
+
+/* =========================================================
+   Bloody Red Links — matching the Creepster header font
+   ========================================================= */
+a {
+  color: #ff0000; /* blood red */
+  text-decoration: none; /* remove underline */
+  font-family: 'Creepster', cursive; /* same as header */
+  letter-spacing: 1px;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* On hover: bright red glow */
+a:hover {
+  color: #ff3030;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.7),
+               0 0 20px rgba(255, 0, 0, 0.5),
+               0 0 30px rgba(255, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* Optional: links in nav bar stay their themed orange, not red */
+.nav_container a {
+  color: var(--text);
+  font-family: 'Creepster', cursive;
+  text-decoration: none;
+}
+
+.nav_container a:hover {
+  color: var(--accent-2);
+  text-shadow: 0 0 8px rgba(255, 183, 3, 0.5);
 }

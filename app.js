@@ -1,110 +1,167 @@
-// Function to ask the user's name and display it
+// ==============================
+// Greeting: ask the user's name
+// ==============================
 function nameFirst() {
-    let userName = prompt('What is your name?');
-    let welcomeElement = document.getElementById('welcome-message');
- 
-    if (welcomeElement) {
-        if (userName) {
-            welcomeElement.innerHTML = 'Hello, ' + userName + ', nice to meet you!';
-        } else {
-            welcomeElement.innerHTML = 'Hello, Guest! Nice to meet you!';
-        }
+  let userName = prompt('What is your name?');
+  let welcomeElement = document.getElementById('welcome-message');
+
+  if (welcomeElement) {
+    if (userName) {
+      welcomeElement.textContent = 'Hello, ' + userName + ', nice to meet you!';
     } else {
-        console.error('Element with id "welcome-message" not found.');
+      welcomeElement.textContent = 'Hello, Guest! Nice to meet you!';
     }
+  } else {
+    console.error('Element with id "welcome-message" not found.');
+  }
 }
- 
-// Function to display a message based on the user's movie input
+
+// ==================================================
+// Favorite scary movie: show a message based on input
+// ==================================================
 function displayMessage() {
-    let movie = prompt('What is your favorite scary movie?');
-    let messageElement = document.getElementById('message');
-   
-    if (!messageElement) {
-        console.error('Element with id "message" not found.');
-        return;
-    }
- 
-    if (movie) {
-        messageElement.innerHTML = 'Wow! ' + movie + ' is really scary!';
-    } else {
-        messageElement.innerHTML = 'You did not enter a movie!';
-    }
+  let movie = prompt('What is your favorite scary movie?');
+  let messageElement = document.getElementById('message');
+
+  if (!messageElement) {
+    console.error('Element with id "message" not found.');
+    return;
+  }
+
+  messageElement.textContent = movie
+    ? 'Wow! ' + movie + ' is really scary!'
+    : 'You did not enter a movie!';
 }
- 
-// Main function to handle the movie input
+
+// =======================================
 function handleMovieInput() {
-    displayMessage();
+  displayMessage();
 }
- 
-// Countdown function for Halloween
+
+// ==========================================================
+function getNextHalloweenDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const thisYearHalloween = new Date(year, 9, 31, 0, 0, 0, 0); // Oct = 9
+  return now <= thisYearHalloween ? thisYearHalloween : new Date(year + 1, 9, 31, 0, 0, 0, 0);
+}
+
+// ==========================================
+let countdownTimerId = null;
+
 function updateCountdown() {
-    const targetDate = new Date("October 31, 2024 00:00:00").getTime();
-    const now = new Date().getTime();
-    const timeLeft = targetDate - now;
- 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
- 
-    const countdownElement = document.getElementById("countdown");
-    if (countdownElement) {
-        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    } else {
-        console.error('Countdown element not found');
-    }
- 
-    if (timeLeft < 0) {
-        countdownElement.innerHTML = "Happy Halloween!";
-    }
+  const targetDate = getNextHalloweenDate().getTime();
+  const now = Date.now();
+  const timeLeft = targetDate - now;
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  const countdownElement = document.getElementById('countdown');
+  if (!countdownElement) return; // quietly skip if not on this page
+
+  if (timeLeft <= 0) {
+    countdownElement.textContent = 'Happy Halloween!';
+    if (countdownTimerId) clearInterval(countdownTimerId);
+    return;
+  }
+
+  countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
- 
-// Ensure the DOM is fully loaded before running the script
-document.addEventListener('DOMContentLoaded', function() {
+
+// =====================================
+function halloweenDate() {
+  let answer = prompt('What date is Halloween on? (Enter the day number e.g. 31)');
+  while (answer !== null && Number(answer) !== 31) {
+    alert('Try again!');
+    answer = prompt('What date is Halloween on?');
+  }
+  if (answer !== null) {
+    alert('Correct! Halloween is October 31st.');
+  }
+}
+
+// ==================================================
+function displayRating() {
+  let rating = prompt('Scale of 1-5, how many pumpkins?');
+  if (rating === null) return;
+
+  let count = parseInt(rating, 10);
+  if (Number.isNaN(count)) count = 0;
+  if (count < 0) count = 0;
+  if (count > 5) count = 5;
+
+  let output = '';
+  for (let i = 0; i < count; i++) {
+    output += "<img class='pumpkin' src='Images/Jackolantern.jpg' alt='Pumpkin' />";
+  }
+
+  let comment = '';
+  switch (count) {
+    case 1: comment = "🎃 Dried Zombies Taste Better."; break;
+    case 2: comment = "🕷️ A Bit Creepy… but You’ll Eat It Anyway."; break;
+    case 3: comment = "👻 Sweetly Spooky!"; break;
+    case 4: comment = "🦇 Fang-Tastic Choice!"; break;
+    case 5: comment = "🕸️ Ghoulishly Delicious!"; break;
+    default: comment = "💀 No rating? The spirits are confused!";
+  }
+
+  const box = document.getElementById('pumpkin');
+  if (box) {
+    box.innerHTML = output + `<p class="rating-comment">${comment}</p>`;
+  } else {
+    console.error("Element with id 'pumpkin' not found.");
+  }
+}
+
+// =====================================================
+function enableImageShake() {
+  const images = document.querySelectorAll('.shakableImage');
+  if (!images.length) return;
+
+  images.forEach((image) => {
+    image.addEventListener('mouseenter', function () {
+      image.classList.add('shake');
+      setTimeout(function () {
+        image.classList.remove('shake');
+      }, 500);
+    });
+  });
+}
+
+/* ==========================================================
+   Only show pop-up prompts on the Home page
+   - Works if your home is "/" or ".../index.html"
+   - Also supports <body data-page="home"> (recommended)
+   ========================================================== */
+function isHomePage() {
+  const p = (window.location.pathname || '').toLowerCase();
+
+  // Recommended explicit flag:
+  if (document.body?.dataset?.page === 'home') return true;
+
+  // Fallback based on URL:
+  return p.endsWith('/index.html') || p === '/' || p === '';
+}
+
+// ============================================================
+// Bootstrap: wait until the HTML is ready, then run everything
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
+  // Shared features for all pages
+  if (document.getElementById('countdown')) {
+    updateCountdown();
+    countdownTimerId = setInterval(updateCountdown, 1000);
+  }
+  enableImageShake();
+
+  // Prompts only on Home
+  if (isHomePage()) {
     nameFirst();
     handleMovieInput();
-    setInterval(updateCountdown, 1000); // Start countdown timer
+    halloweenDate();
+    displayRating();
+  }
 });
-
-function halloweenDate() {
-    let answer = prompt('What date is Halloween on?');  // Ask for the answer before the loop
-
-    while (answer != 31) {   // Keep looping if the answer is not 31
-        alert('Try again!');
-        answer = prompt('What date is Halloween on?');  // Ask again inside the loop
-    }
-
-    alert('Correct! Halloween is October 31st.');
-}
-
-halloweenDate ()
-
-function displayRating() {
-    let output = '';
-    let rating = prompt('Scale of 1-5, How many pumpkins?');
-    for(let i = 0; i < rating; i++){
-        output += "<img class='pumpkin' src='Images/Jackolantern.jpg' />";
-    }
-
-    // Inject the output into the div instead of using document.write
-    document.getElementById('pumpkin').innerHTML = output;
-}
-
-
-displayRating()
-
-const images = document.querySelectorAll('.shakableImage');
- 
- // Add event listeners for each image
-     images.forEach(image => {
-            image.addEventListener('mouseenter', function() {
-                // Add the shake class
-                image.classList.add('shake');
- 
-                // Remove the shake class after the animation is done
-                setTimeout(function() {
-                    image.classList.remove('shake');
-                }, 500);
-            });
-        });
-   

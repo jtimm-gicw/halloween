@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halloween — Useful Links</title>
+
+  <!-- Same font + styles as the rest of the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet" />
+
+  <!-- Shared JS (countdown, image shake, etc.) -->
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <!-- =================== HEADER & NAV (shared) =================== -->
+  <header class="site-header">
+    <h1>Useful Links</h1>
+
+    <!-- Dynamic areas (prompts only run on Home due to isHomePage()) -->
+    <div id="welcome-message" aria-live="polite"></div>
+    <div id="message" aria-live="polite"></div>
+
+    <nav class="nav_container" aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="halloween-history.html">History</a></li>
+        <li><a href="Fun-Crafts.html">Crafts</a></li>
+        <li><a href="Useful-link.html">Useful Links</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =================== MAIN =================== -->
+  <main id="main-content">
+    <!-- Classmates -->
+    <section class="sections" aria-labelledby="classmates-title">
+      <h2 id="classmates-title"><strong>Check Out My Classmates!</strong></h2>
+      <article>
+        <ul>
+          <!-- Keep your original links -->
+          <li><a href="https://staasie.github.io/album-store" target="_blank" rel="noopener">Staas — Album Store</a></li>
+          <li><a href="https://danielsolano05.github.io/pastry-shop" target="_blank" rel="noopener">Daniel — Pastry Shop</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Further research links -->
+    <section class="sections" aria-labelledby="research-title">
+      <h2 id="research-title"><strong>Further Research: History & Traditions</strong></h2>
+      <article>
+        <p>Explore more about Halloween’s origins, customs, and how it’s celebrated around the world:</p>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Halloween" target="_blank" rel="noopener">Wikipedia — Halloween</a></li>
+          <li><a href="https://www.history.com/topics/halloween/history-of-halloween" target="_blank" rel="noopener">History.com — History of Halloween</a></li>
+          <li><a href="https://www.britannica.com/topic/Halloween" target="_blank" rel="noopener">Britannica — Halloween Overview</a></li>
+          <li><a href="https://www.nationalgeographic.com/history/article/halloween-history-facts" target="_blank" rel="noopener">National Geographic — Halloween History & Facts</a></li>
+          <li><a href="https://www.countryliving.com/entertaining/a28609917/halloween-traditions/" target="_blank" rel="noopener">Country Living — Halloween Traditions</a></li>
+        </ul>
+      </article>
+    </section>
+
+
+
+  <!-- =================== FOOTER COUNTDOWN =================== -->
+  <footer class="site-footer">
+    <h2>Countdown to Halloween!</h2>
+    <div id="countdown" aria-live="polite"></div>
+  </footer>
+
+
+</body>
+</html>
