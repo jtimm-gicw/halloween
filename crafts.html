@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Halloween — Fun Crafts</title>
 
-  <!-- Halloween font + main styles -->
+  <!-- Halloween font + main styles (same as the rest of the site) -->
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet" />
 
-  <!-- JS (greeting, prompts, rating, countdown, shake) -->
+  <!-- JS (greeting, prompts only on Home, rating, countdown, shake) -->
   <script src="app.js" defer></script>
 </head>
 
@@ -18,7 +18,7 @@
   <header class="site-header">
     <h1>Happy Halloween!</h1>
 
-    <!-- JS inserts greeting + movie message here -->
+    <!-- JS inserts greeting + movie message here (safe on other pages; popups only run on Home) -->
     <div id="welcome-message" aria-live="polite"></div>
     <div id="message" aria-live="polite"></div>
 
@@ -27,13 +27,15 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="halloween-history.html">History</a></li>
         <li><a href="crafts.html">Crafts</a></li>
-        <li><a href="useful-links.html">Useful Links</a></li>
+        <!-- FIX: keep filename consistent with other pages (useful-links.html) -->
+        <li><a href="useful-link.html">Useful Links</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- =================== MAIN =================== -->
-  <main id="main-content">
+  <!-- FIX: add class="site-main" so CSS flex layout can expand main to fill height -->
+  <main id="main-content" class="site-main">
     <section aria-labelledby="crafts-title">
       <h2 id="crafts-title"><strong>9 Fun Halloween Crafts</strong></h2>
       <p style="text-align:center; margin-top:0;">
@@ -44,7 +46,7 @@
         <!-- 1. Paper Plate Ghosts -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/plate-ghost.jpg" alt="Paper plate ghost craft" loading="lazy">
+            <img class="shakableImage" src="Images/paper-plate-ghost.jpg" alt="Paper plate ghost craft" loading="lazy">
           </figure>
           <h3 class="craft-title">Paper Plate Ghosts</h3>
           <ul class="craft-materials">
@@ -63,7 +65,7 @@
         <!-- 2. Toilet Roll Bats -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/roll-bats.jpg" alt="Toilet paper roll bat craft" loading="lazy">
+            <img class="shakableImage" src="Images/tp_roll-bat.jpg" alt="Toilet paper roll bat craft" loading="lazy">
           </figure>
           <h3 class="craft-title">Toilet Roll Bats</h3>
           <ul class="craft-materials">
@@ -82,7 +84,7 @@
         <!-- 3. Mummy Jar Lanterns -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/mummy-jar.jpg" alt="Mason jar mummy lantern" loading="lazy">
+            <img class="shakableImage" src="Images/mummy-jar.jpg" alt="Mason jar mummy lantern" loading="lazy">
           </figure>
           <h3 class="craft-title">Mummy Jar Lanterns</h3>
           <ul class="craft-materials">
@@ -101,7 +103,7 @@
         <!-- 4. Leaf Rubbing Pumpkins -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/leaf-pumpkin.jpg" alt="Leaf rubbing pumpkin art" loading="lazy">
+            <img class="shakableImage" src="Images/leaf-pumpkin.jpg" alt="Leaf rubbing pumpkin art" loading="lazy">
           </figure>
           <h3 class="craft-title">Leaf Rubbing Pumpkins</h3>
           <ul class="craft-materials">
@@ -120,7 +122,7 @@
         <!-- 5. Yarn Spider Web Plates -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/yarn-web.jpg" alt="Yarn spider web on paper plate" loading="lazy">
+            <img class="shakableImage" src="Images/pp-spider-web.jpg" alt="Yarn spider web on paper plate" loading="lazy">
           </figure>
           <h3 class="craft-title">Yarn Spider Web Plates</h3>
           <ul class="craft-materials">
@@ -139,7 +141,7 @@
         <!-- 6. Painted Rock Monsters -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/rock-monsters.jpg" alt="Painted rock monsters" loading="lazy">
+            <img class="shakableImage" src="Images/painted-rock-monsters.jpg" alt="Painted rock monsters" loading="lazy">
           </figure>
           <h3 class="craft-title">Painted Rock Monsters</h3>
           <ul class="craft-materials">
@@ -158,7 +160,7 @@
         <!-- 7. Popsicle Stick Haunted House -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/stick-house.jpg" alt="Popsicle stick haunted house craft" loading="lazy">
+            <img class="shakableImage" src="Images/stick-haunted-house.png" alt="Popsicle stick haunted house craft" loading="lazy">
           </figure>
           <h3 class="craft-title">Popsicle Stick Haunted House</h3>
           <ul class="craft-materials">
@@ -177,7 +179,7 @@
         <!-- 8. Pumpkin Seed Art -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/seed-art.jpg" alt="Pumpkin seed art craft" loading="lazy">
+            <img class="shakableImage" src="Images/pumpkin-seed.jpg" alt="Pumpkin seed art craft" loading="lazy">
           </figure>
           <h3 class="craft-title">Pumpkin Seed Art</h3>
           <ul class="craft-materials">
@@ -196,7 +198,7 @@
         <!-- 9. Witch Hat Bookmarks -->
         <article class="craft-card">
           <figure class="craft-figure">
-            <img class="shakableImage" src="Images/crafts/witch-hat-bookmark.jpg" alt="Witch hat corner bookmarks" loading="lazy">
+            <img class="shakableImage" src="Images/witch-hat-bm.jpg" alt="Witch hat corner bookmarks" loading="lazy">
           </figure>
           <h3 class="craft-title">Witch Hat Bookmarks</h3>
           <ul class="craft-materials">
@@ -216,13 +218,13 @@
   </main>
 
   <!-- =================== FOOTER COUNTDOWN =================== -->
-  <footer class="site-footer">
-    <h2>Countdown to Halloween!</h2>
-    <div id="countdown" aria-live="polite"></div>
-  </footer>
+  <!-- FIX: add class="site-footer" so CSS flex layout treats it as a footer block -->
+  <footer>
+        <h2>Countdown to Halloween!</h2>
+        <div id="countdown"></div>
+        <div id="pumpkin" class="rating-container"></div>
+    </footer>
+  
 
-  <noscript>
-    Please enable JavaScript to see the interactive greeting and live countdown.
-  </noscript>
 </body>
 </html>

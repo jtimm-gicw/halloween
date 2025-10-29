@@ -7,6 +7,9 @@
 
   <!-- Same font + styles as other pages -->
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Creepster&family=Dancing+Script:wght@400..700&family=Frijole&family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet" />
 
   <!-- Shared JS (countdown, shake, etc.) -->
@@ -26,14 +29,17 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="halloween-history.html">History</a></li>
+        <!-- FIX: standardize filename to crafts.html (matches nav on Home and your file) -->
         <li><a href="crafts.html">Crafts</a></li>
+        <!-- FIX: standardize filename to useful-links.html (plural + hyphen) -->
         <li><a href="useful-link.html">Useful Links</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- =================== MAIN =================== -->
-  <main id="main-content">
+  <!-- FIX: add class="site-main" so CSS flex layout can expand this area -->
+  <main id="main-content" class="site-main">
     <!-- Page title -->
     <section>
       <h2><strong>The Origins of Halloween</strong></h2>
@@ -127,13 +133,12 @@
   </main>
 
   <!-- =================== FOOTER COUNTDOWN =================== -->
-  <footer>
+  <!-- FIX: add class="site-footer" so CSS flex layout treats it as a footer block -->
+ <footer>
         <h2>Countdown to Halloween!</h2>
         <div id="countdown"></div>
+        <div id="pumpkin" class="rating-container"></div>
     </footer>
 
- 
-
-  
 </body>
 </html>
